@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#087fa8" />
+  <title>HUMAN ROBOT | Exit Ticket</title>
+  <style>
+    :root{font-family:system-ui,"Noto Sans Thai",Tahoma,sans-serif;color:#143454;background:#06172f}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;min-height:100vh;background:#06172f;position:relative;isolation:isolate}
+    body::before{content:"";position:fixed;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 14% 4%,#128de765,transparent 40%),radial-gradient(ellipse at 86% 28%,#1b68cc55,transparent 42%),radial-gradient(ellipse at 56% 83%,#1ba9c02a,transparent 52%),linear-gradient(155deg,#07122e 0%,#0a2d58 48%,#07162c 100%)}
+    body::after{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.36;background-image:linear-gradient(#4dd7ff16 1px,transparent 1px),linear-gradient(90deg,#4dd7ff16 1px,transparent 1px);background-size:44px 44px;mask-image:linear-gradient(to bottom,#000,transparent 86%)}
+    .wrap{max-width:960px;margin:auto;padding:24px 18px 64px;position:relative}
+    .hero{height:400px;position:relative;overflow:hidden;border-radius:30px;border:1px solid #8fdfff58;background:radial-gradient(circle at 40% 45%,#0b85e333,transparent 36%),linear-gradient(120deg,#06264c 0%,#07528d 58%,#071e48 100%);box-shadow:0 26px 60px #0007, inset 0 0 65px #23baff1a;color:#fff}
+    .hero::before{content:"";position:absolute;inset:-40%;background:repeating-linear-gradient(112deg,transparent 0 68px,#58e8ff10 69px 70px,transparent 72px 126px);transform:rotate(-8deg);pointer-events:none}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#042047f2 0%,#042047b9 38%,transparent 78%);pointer-events:none}
+    .hero-content{position:absolute;left:5%;top:26%;z-index:4;max-width:54%}
+    .eyebrow{font-size:.76rem;letter-spacing:.16em;font-weight:900;color:#8bf8ff;text-shadow:0 0 12px #20c3ff80}
+    h1{margin:8px 0 8px;font-size:clamp(2.4rem,5vw,4.3rem);line-height:1.05;letter-spacing:.035em;text-shadow:0 5px 25px #000a}
+    .hero-content p{margin:10px 0;line-height:1.7;font-weight:600;color:#d2f3ff;max-width:390px}
+    .pill{display:inline-block;background:linear-gradient(110deg,#77f1ff,#b2ffdc);color:#073355;font-size:.81rem;font-weight:900;border-radius:50px;padding:9px 16px;margin-top:13px;box-shadow:0 0 24px #1dd7ff7a}
+    .tech-scene{position:absolute;inset:0;z-index:2;pointer-events:none}
+    .tech-piece{position:absolute;filter:drop-shadow(0 0 12px #28dfff73) drop-shadow(0 12px 12px #021530);transform:rotate(var(--tilt,0deg));animation:float 7s ease-in-out infinite;animation-delay:var(--delay,0s)}
+    .tech-piece svg{display:block;width:100%;height:auto;overflow:visible}
+    .ct-poster{width:272px;left:46%;top:7%;--tilt:-13deg;--delay:-.8s;filter:drop-shadow(0 0 17px #00d5ff9c) drop-shadow(9px 15px 10px #0007)}
+    .microbit{width:166px;right:3%;top:8%;--tilt:16deg;--delay:-2.7s}
+    .ai-chip{width:124px;right:26%;top:51%;--tilt:-18deg;--delay:-1.1s}
+    .computer{width:185px;right:3%;bottom:4%;--tilt:10deg;--delay:-3.4s}
+    .brain{width:122px;left:38%;bottom:2%;--tilt:13deg;--delay:-4.1s}
+    .circuit{width:180px;right:0;top:40%;opacity:.75;--tilt:8deg}
+    .circuit2{width:150px;left:9%;top:1%;opacity:.5;--tilt:-26deg}
+    .hero-spark{position:absolute;width:7px;height:7px;background:#a9ffff;border-radius:50%;box-shadow:0 0 11px 5px #00cbff90;z-index:3}
+    .spark1{left:44%;top:58%}.spark2{right:25%;top:16%}.spark3{right:10%;bottom:24%}
+    .brand-mark{position:absolute;z-index:5;font-size:.72rem;color:#ffffff56;font-weight:800;letter-spacing:.22em;pointer-events:none}
+    .brand-one{right:26px;bottom:15px;transform:rotate(-7deg)}.brand-two{left:37%;top:20px;transform:rotate(16deg)}
+    @keyframes float{0%,100%{translate:0 0}50%{translate:0 -9px}}
+    .panel{background:#fafdfffa;border:1px solid #79c8f5a0;border-radius:22px;padding:25px;margin-top:20px;box-shadow:0 14px 45px #0005,0 0 0 1px #ffffff47 inset;position:relative}
+    .panel::before{content:"";position:absolute;top:0;left:28px;right:28px;height:3px;border-radius:10px;background:linear-gradient(90deg,#0dbbff,#6bf6ff,#31b8a8)}
+    h2{font-size:1.22rem;margin:0 0 16px;color:#0867a3}
+    .row{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px}
+    @media(max-width:650px){.row{grid-template-columns:1fr 1fr}.row label:first-child{grid-column:1/-1}}
+    label span{display:block;font-size:.86rem;font-weight:700;margin-bottom:6px}
+    input{border:1.5px solid #b6d9ee;border-radius:11px;padding:12px;width:100%;font:inherit;background:white;color:#12374c}
+    input:focus{outline:3px solid #31cce775;border-color:#078cb0}
+    .item{padding:20px 0;border-top:1px solid #e1eff2}.item:first-of-type{border:0}
+    .number{color:#008ab5;font-weight:850}.q{font-weight:750;margin:6px 0 12px}
+    .option{display:flex;gap:10px;align-items:flex-start;border:1.5px solid #d1e8ee;border-radius:12px;padding:12px;cursor:pointer;margin:8px 0;transition:background .15s,border-color .15s}
+    .option:hover{background:#eefbff}.option:has(input:checked){border-color:#0aa8de;background:#e4f8ff}
+    .option input{width:auto;margin:5px 0 0;accent-color:#078fb9}
+    button{font:inherit;border:0;border-radius:12px;padding:14px 22px;font-weight:800;background:linear-gradient(110deg,#076dbc,#07b3d3);color:white;cursor:pointer;box-shadow:0 5px 18px #087b9b50}
+    button:disabled{opacity:.45;cursor:not-allowed}.secondary{color:#086d85;background:#e0f6f8;box-shadow:none}
+    .actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.hint{color:#507485;font-size:.87rem}
+    .feedback{margin-top:9px;padding:11px 13px;border-radius:10px;background:#eaf8ff;font-size:.91rem;border-left:3px solid #0ca0ce}
+    .error{color:#b52737}.score{font-weight:900;font-size:3.4rem;color:#078dba;margin:6px 0}
+    .hide{display:none}.small{font-size:.78rem;color:#b4def3;line-height:1.7;padding:0 5px}
+    .notice{border-radius:12px;padding:13px 15px;background:#fff8e7;border:1px solid #f3dfaa;font-size:.9rem;margin-top:14px}
+    .success{background:#dff8ee;border-color:#a5e6cf}
+    @media(max-width:720px){.hero{height:365px}.hero-content{top:27%;max-width:70%;left:6%}.hero-content p{font-size:.9rem}.ct-poster{width:185px;left:50%;top:6%}.microbit{width:100px;right:-2%;top:4%}.ai-chip{width:90px;right:22%;top:55%}.computer{width:124px;right:0;bottom:6%}.brain{width:80px;left:45%;bottom:3%}.circuit{width:110px}.brand-two{left:26%}}
+    @media(max-width:480px){.wrap{padding:12px 10px 38px}.hero{height:340px;border-radius:22px}.hero-content{max-width:84%;top:35%}.hero-content h1{font-size:2.5rem}.ct-poster{width:174px;left:42%;top:2%}.microbit{width:90px;right:-6%;top:5%}.computer{width:106px;right:-2%;bottom:3%;opacity:.7}.ai-chip{width:78px;right:6%;top:47%;opacity:.75}.brain{width:70px;left:59%;bottom:0;opacity:.7}.brand-two{left:13%;top:14px}.hero::after{background:linear-gradient(90deg,#042047e6,#04204774 70%,transparent)}.panel{padding:18px}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+  </style>
+</head>
+<body>
+  <main class="wrap">
+        <header class="hero">
+      <div class="tech-scene" aria-hidden="true">
+        <div class="tech-piece ct-poster"><svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="poster" x2="1" y2="1"><stop stop-color="#38e4ff"/><stop offset="1" stop-color="#366cef"/></linearGradient></defs><rect x="12" y="13" width="276" height="172" rx="17" fill="#041736" stroke="#7af6ff" stroke-width="6"/><rect x="23" y="25" width="254" height="148" rx="10" fill="url(#poster)" opacity=".85"/><path d="M40 116H254M92 46V153M195 46V153" stroke="#c0faff" stroke-width="2" stroke-dasharray="4 8" opacity=".75"/><g fill="#062a5d" font-weight="900" text-anchor="middle" font-family="Arial,sans-serif"><text x="150" y="91" font-size="28">COMPUTATIONAL</text><text x="150" y="130" font-size="36">THINKING</text></g><circle cx="43" cy="43" r="6" fill="#b3fdff"/><circle cx="258" cy="151" r="7" fill="#b3fdff"/></svg></div>
+        <div class="tech-piece microbit"><svg viewBox="0 0 175 145" xmlns="http://www.w3.org/2000/svg"><rect x="5" y="6" width="165" height="127" rx="19" fill="#091e49" stroke="#59d6ff" stroke-width="6"/><path d="M20 108h134v12H20z" fill="#f4c74b"/><g fill="#ff65ad"><circle cx="45" cy="29" r="5"/><circle cx="129" cy="29" r="5"/></g><g fill="#39dfff"><circle cx="57" cy="49" r="5"/><circle cx="84" cy="49" r="5"/><circle cx="111" cy="49" r="5"/><circle cx="57" cy="72" r="5"/><circle cx="84" cy="72" r="5"/><circle cx="111" cy="72" r="5"/><circle cx="57" cy="94" r="5"/><circle cx="84" cy="94" r="5"/><circle cx="111" cy="94" r="5"/></g><circle cx="30" cy="72" r="11" fill="#ddefff"/><circle cx="146" cy="72" r="11" fill="#ddefff"/></svg></div>
+        <div class="tech-piece ai-chip"><svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg"><rect x="28" y="28" width="84" height="84" rx="14" fill="#082650" stroke="#5bffff" stroke-width="5"/><g stroke="#30e1ff" stroke-width="5" stroke-linecap="round"><path d="M43 14v14M65 14v14M87 14v14M109 14v14M43 112v14M65 112v14M87 112v14M109 112v14M14 43h14M14 65h14M14 87h14M14 109h14M112 43h14M112 65h14M112 87h14M112 109h14"/></g><rect x="42" y="42" width="56" height="56" rx="11" fill="#116eb1"/><text x="70" y="83" text-anchor="middle" font-size="34" font-family="Arial" font-weight="bold" fill="#d9ffff">AI</text></svg></div>
+        <div class="tech-piece computer"><svg viewBox="0 0 190 145" xmlns="http://www.w3.org/2000/svg"><rect x="7" y="6" width="176" height="111" rx="12" fill="#061a3b" stroke="#4fcaff" stroke-width="6"/><rect x="18" y="17" width="154" height="88" rx="5" fill="#0c71ae"/><path d="M32 73l24-21 18 17 28-30 20 15 28-19" stroke="#85fbff" stroke-width="6" fill="none"/><circle cx="56" cy="52" r="7" fill="#ffffff"/><path d="M80 119h30l5 13h34v7H41v-7h34z" fill="#b2eaff"/></svg></div>
+        <div class="tech-piece brain"><svg viewBox="0 0 134 130" xmlns="http://www.w3.org/2000/svg"><path d="M67 20C42 0 11 25 23 48 6 64 21 96 45 93c5 15 18 16 22 9 4 7 17 6 22-9 24 3 39-29 22-45C123 25 92 0 67 20Z" fill="#56bfff" stroke="#b8ffff" stroke-width="5"/><path d="M67 20v82M48 36c-18-8-23 22-7 25m7 8c-11 15-1 26 10 24m29-57c18-8 23 22 7 25m-7 8c11 15 1 26-10 24" stroke="#1e60ac" stroke-width="5" fill="none" stroke-linecap="round"/><g fill="#0d2d5c"><circle cx="36" cy="56" r="4"/><circle cx="98" cy="56" r="4"/></g></svg></div>
+        <div class="tech-piece circuit"><svg viewBox="0 0 175 120" xmlns="http://www.w3.org/2000/svg"><g stroke="#40eaff" stroke-width="3" fill="none" opacity=".85"><path d="M4 24H45L65 44h57l27-22h20M0 80h68l20 22h85M55 4v33m64 11v30l31 14h25"/></g><g fill="#b5ffff"><circle cx="4" cy="24" r="5"/><circle cx="169" cy="22" r="5"/><circle cx="173" cy="102" r="5"/><circle cx="55" cy="4" r="5"/><circle cx="175" cy="92" r="5"/></g></svg></div>
+        <div class="tech-piece circuit2"><svg viewBox="0 0 175 120" xmlns="http://www.w3.org/2000/svg"><g stroke="#50ccff" stroke-width="3" fill="none"><path d="M4 24H45L65 44h57l27-22h20M0 80h68l20 22h85M55 4v33m64 11v30l31 14h25"/></g><g fill="#aefaff"><circle cx="4" cy="24" r="5"/><circle cx="169" cy="22" r="5"/><circle cx="173" cy="102" r="5"/></g></svg></div>
+      </div>
+      <span class="hero-spark spark1"></span><span class="hero-spark spark2"></span><span class="hero-spark spark3"></span>
+      <span class="brand-mark brand-one">KRU_FAH</span><span class="brand-mark brand-two">KRU_FAH</span>
+      <div class="hero-content"><div class="eyebrow">EXIT TICKET • มัธยมศึกษาปีที่ 2</div><h1>HUMAN<br>ROBOT</h1><p>จากเกมหุ่นยนต์ สู่แนวคิดเชิงคำนวณ 4 องค์ประกอบ</p><span class="pill">4 คำถาม · คะแนนเต็ม 4 คะแนน</span></div>
+    </header>
+    <section id="quiz">
+      <div class="panel"><h2>ข้อมูลนักเรียน</h2><div class="row"><label><span>ชื่อ–นามสกุล</span><input id="student" maxlength="100" autocomplete="name" placeholder="ชื่อและนามสกุล" required /></label><label><span>ชั้น/ห้อง</span><input id="classroom" maxlength="20" placeholder="เช่น ม.2/3" required /></label><label><span>เลขที่</span><input id="studentNo" type="number" min="1" max="60" placeholder="เช่น 12" required /></label></div></div>
+      <form id="quizForm" class="panel" novalidate><h2>คำถามหลังจบเกม</h2><div id="questions"></div><div class="actions"><button type="submit">ตรวจคำตอบและบันทึกคะแนน</button><span class="hint">กรุณาตอบให้ครบทุกข้อ</span></div><p id="formError" class="error" role="alert"></p></form>
+    </section>
+    <section class="panel hide" id="result" aria-live="polite"><h2>ผลการเรียนรู้</h2><div id="resultName"></div><div class="score" id="score"></div><div id="feedback"></div><div id="saveStatus" class="notice">กำลังบันทึกผล...</div><div class="actions" style="margin-top:17px"><button type="button" id="retrySave" class="secondary hide">ลองบันทึกอีกครั้ง</button><button type="button" id="resetBtn" class="secondary">ทำแบบทดสอบใหม่</button></div></section>
+    <p class="small">การบันทึกลง Google Sheets ต้องตั้งค่า URL ของ Google Apps Script ในไฟล์นี้ก่อนเผยแพร่ โปรดใช้ข้อมูลนักเรียนเท่าที่จำเป็นและจัดสิทธิ์ชีตให้ครูเท่านั้น</p>
+  </main>
+  <iframe name="saveFrame" id="saveFrame" title="ระบบบันทึกคะแนน" class="hide"></iframe>
+  <form method="POST" target="saveFrame" id="saveForm" class="hide"><input name="payload" id="payload" /></form>
+<script>
+'use strict';
+// วาง URL /exec จาก Google Apps Script ที่เผยแพร่แล้วที่นี่
+const SCRIPT_URL = 'PASTE_YOUR_GOOGLE_APPS_SCRIPT_EXEC_URL_HERE';
+const QUESTIONS = [
+  {q:'การแบ่งเส้นทางออกเป็นช่วงย่อย ตรงกับแนวคิดใด?',o:['การแยกย่อยปัญหา','การหารูปแบบ','การคิดเชิงนามธรรม','การออกแบบขั้นตอนวิธี'],a:0,why:'แบ่งปัญหาใหญ่ให้เป็นส่วนเล็ก จึงวางแผนและตรวจสอบได้ง่ายขึ้น'},
+  {q:'การสังเกตว่าคำสั่ง RIGHT ถูกใช้ติดต่อกันหลายครั้ง ตรงกับแนวคิดใด?',o:['การคิดเชิงนามธรรม','การหารูปแบบ','การแยกย่อยปัญหา','การทดสอบ'],a:1,why:'การสังเกตคำสั่งที่เกิดซ้ำ คือการหารูปแบบ'},
+  {q:'การสนใจเฉพาะช่องที่เดินได้และสิ่งกีดขวาง ตรงกับแนวคิดใด?',o:['การหารูปแบบ','การออกแบบขั้นตอนวิธี','การคิดเชิงนามธรรม','การทำงานเป็นทีม'],a:2,why:'เลือกเฉพาะข้อมูลที่จำเป็น และละรายละเอียดที่ไม่เกี่ยวข้อง'},
+  {q:'การเรียงการ์ดคำสั่งให้หุ่นยนต์เดินตาม ตรงกับแนวคิดใด?',o:['การออกแบบขั้นตอนวิธี','การหารูปแบบ','การคิดเชิงนามธรรม','การแยกย่อยปัญหา'],a:0,why:'กำหนดลำดับขั้นตอนการทำงานอย่างชัดเจน'}
+];
+const $=id=>document.getElementById(id);
+$('questions').innerHTML=QUESTIONS.map((q,i)=>`<div class="item"><div class="number">ข้อ ${i+1}</div><div class="q">${q.q}</div>${q.o.map((o,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}" required><span>${o}</span></label>`).join('')}</div>`).join('');
+let pendingId=null;
+let currentPayload=null;
+function save(){
+  if(!SCRIPT_URL.startsWith('https://script.google.com/macros/s/')){
+    $('saveStatus').textContent='แสดงคะแนนแล้ว แต่ยังไม่ได้ตั้งค่า Google Apps Script จึงยังไม่บันทึกลง Google Sheets';$('retrySave').classList.add('hide');return;
+  }
+  pendingId=currentPayload.submissionId;
+  $('saveStatus').textContent='กำลังส่งคะแนนไป Google Sheets...';$('saveStatus').classList.remove('success');
+  $('retrySave').classList.add('hide');
+  $('saveForm').action=SCRIPT_URL;
+  $('payload').value=JSON.stringify(currentPayload);
+  $('saveForm').submit();
+  // กรณีเบราว์เซอร์บล็อก iframe จะไม่ยืนยันว่าบันทึกสำเร็จ
+  setTimeout(()=>{if(pendingId){$('saveStatus').textContent='ยังไม่ได้รับการยืนยันว่าบันทึกสำเร็จ โปรดตรวจสอบอินเทอร์เน็ตหรือลองอีกครั้ง';$('retrySave').classList.remove('hide');}},12000);
+}
+window.addEventListener('message',e=>{
+  if(!e.origin.endsWith('.googleusercontent.com')&&!e.origin.endsWith('.google.com'))return;
+  if(!e.data||e.data.type!=='human-robot-save'||e.data.submissionId!==pendingId)return;
+  if(e.data.success){$('saveStatus').textContent='บันทึกคะแนนลง Google Sheets สำเร็จ';$('saveStatus').classList.add('success');$('retrySave').classList.add('hide');pendingId=null;}
+  else{$('saveStatus').textContent='บันทึกคะแนนไม่สำเร็จ กรุณาลองอีกครั้ง';$('retrySave').classList.remove('hide');}
+});
+$('quizForm').addEventListener('submit',ev=>{
+  ev.preventDefault();$('formError').textContent='';
+  const name=$('student').value.trim(),room=$('classroom').value.trim(),n=Number($('studentNo').value);
+  if(!name||!room||!Number.isInteger(n)||n<1||n>60){$('formError').textContent='กรุณากรอกชื่อ ชั้น/ห้อง และเลขที่ให้ครบถ้วน';return;}
+  const answers=QUESTIONS.map((_,i)=>{const el=document.querySelector(`input[name="q${i}"]:checked`);return el?Number(el.value):null;});
+  if(answers.some(a=>a===null)){$('formError').textContent='กรุณาตอบคำถามทั้ง 4 ข้อ';return;}
+  const score=QUESTIONS.filter((q,i)=>q.a===answers[i]).length;
+  $('resultName').textContent=`${name} | ${room} | เลขที่ ${n}`;
+  $('score').textContent=`${score} / 4 คะแนน`;
+  $('feedback').replaceChildren();
+  QUESTIONS.forEach((q,i)=>{const div=document.createElement('div');div.className='feedback';div.textContent=`ข้อ ${i+1}: ${answers[i]===q.a?'ถูกต้อง':'คำตอบที่ถูก: '+q.o[q.a]} — ${q.why}`;$('feedback').append(div)});
+  currentPayload={student:name,classroom:room,studentNo:n,answers,submissionId:crypto.randomUUID()};
+  $('quiz').classList.add('hide');$('result').classList.remove('hide');window.scrollTo({top:0,behavior:'smooth'});save();
+});
+$('retrySave').onclick=save;
+$('resetBtn').onclick=()=>{pendingId=null;currentPayload=null;$('quizForm').reset();$('result').classList.add('hide');$('quiz').classList.remove('hide');window.scrollTo({top:0,behavior:'smooth'})};
+</script>
+</body></html>
