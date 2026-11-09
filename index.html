@@ -143,6 +143,32 @@ renderBoard();
 $('questions').innerHTML=QUESTIONS.map((q,i)=>`<div class="item"><div class="number">ข้อ ${i+1}</div><div class="q">${q.q}</div>${q.o.map((o,j)=>`<label class="option"><input type="radio" name="q${i}" value="${j}" required><span>${o}</span></label>`).join('')}</div>`).join('');
 let pendingId=null;
 let currentPayload=null;
+// ตรวจผลคะแนนโดยใช้รหัสการส่งงาน (สำรองกรณี iframe ไม่ส่งข้อความกลับ)
+let scorePollTimer=null,scorePollCount=0;
+function startScorePolling(){
+  clearTimeout(scorePollTimer);scorePollCount=0;
+  const check=()=>{
+    if(!pendingId)return;
+    if(scorePollCount++>=24){
+      $('saveStatus').textContent='บันทึกงานแล้ว แต่ยังไม่ได้รับผลคะแนนบนหน้าเว็บ กรุณาแจ้งคุณครู';
+      $('retrySave').classList.remove('hide');return;
+    }
+    const tag=document.createElement('script');
+    const callback='humanRobotScoreCallback';
+    const cleanup=()=>{if(tag.parentNode)tag.remove();};
+    window[callback]=data=>{
+      cleanup();
+      if(data&&data.submissionId===pendingId&&data.status==='graded'){
+        window.dispatchEvent(new MessageEvent('message',{data:{...data,type:'human-robot-save',success:true},origin:location.origin}));
+      }
+    };
+    tag.onerror=cleanup;
+    tag.src=SCRIPT_URL+'?action=score&submissionId='+encodeURIComponent(pendingId)+'&callback='+callback+'&_='+Date.now();
+    document.head.appendChild(tag);
+    scorePollTimer=setTimeout(check,3000);
+  };
+  scorePollTimer=setTimeout(check,2500);
+}
 function save(){
   if(!SCRIPT_URL.startsWith('https://script.google.com/macros/s/')){
     $('saveStatus').textContent='แสดงคะแนนแล้ว แต่ยังไม่ได้ตั้งค่า Google Apps Script จึงยังไม่บันทึกลง Google Sheets';$('retrySave').classList.add('hide');return;
@@ -153,12 +179,13 @@ function save(){
   $('saveForm').action=SCRIPT_URL;
   $('payload').value=JSON.stringify(currentPayload);
   $('saveForm').submit();
+  startScorePolling();
   // กรณีเบราว์เซอร์บล็อก iframe จะไม่ยืนยันว่าบันทึกสำเร็จ
   setTimeout(()=>{if(pendingId){$('saveStatus').textContent='ยังไม่ได้รับการยืนยันว่าบันทึกสำเร็จ โปรดตรวจสอบอินเทอร์เน็ตหรือลองอีกครั้ง';$('retrySave').classList.remove('hide');}},45000);
 }
 window.addEventListener('message',e=>{
   // GAS HTML Service may post from a nested googleusercontent iframe.
-  if(e.origin!=='null' && !/^https:\/\/([a-z0-9-]+\.)*(googleusercontent\.com|google\.com)$/.test(e.origin)) return;
+  if(e.origin!=='null' && e.origin!==location.origin && !/^https:\/\/([a-z0-9-]+\.)*(googleusercontent\.com|google\.com)$/.test(e.origin)) return;
   if(!e.data||e.data.type!=='human-robot-save'||e.data.submissionId!==pendingId)return;
   if(e.data.success){
     const total=e.data.total===null||e.data.total===''?NaN:Number(e.data.total);
@@ -182,7 +209,7 @@ window.addEventListener('message',e=>{
       $('ticketMessage').textContent='AI ยังตรวจไม่สำเร็จ โปรดแจ้งคุณครู';
       $('saveStatus').textContent='บันทึกลง Sheets แล้ว แต่รอการตรวจ AI';
     }
-    $('saveStatus').classList.add('success');$('retrySave').classList.add('hide');pendingId=null;
+    $('saveStatus').classList.add('success');$('retrySave').classList.add('hide');pendingId=null;clearTimeout(scorePollTimer);
   } else {$('saveStatus').textContent='บันทึกคะแนนไม่สำเร็จ กรุณาลองอีกครั้ง';$('retrySave').classList.remove('hide');}
 });
 $('quizForm').addEventListener('submit',ev=>{
