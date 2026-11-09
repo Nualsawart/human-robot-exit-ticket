@@ -64,9 +64,17 @@
     .worksheet-intro{color:#486e83;margin:-7px 0 16px}.board{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px;max-width:670px;margin:12px 0}.cell{aspect-ratio:1;border:2px solid #a4d4ed;border-radius:10px;background:#effbff;color:#06648b;font-size:1.2rem;font-weight:900;padding:0;box-shadow:none}.cell[data-mark="S"]{background:#c8f8e1;color:#086f51}.cell[data-mark="F"]{background:#c7e4ff;color:#064fba}.cell[data-mark="X"]{background:#ffe1e1;color:#ae2839}.ws-field{display:block;margin:14px 0;font-weight:750;color:#0867a3}.ws-field textarea{display:block;margin-top:7px;min-height:75px;resize:vertical;width:100%;border:1.5px solid #b6d9ee;border-radius:11px;padding:12px;font:inherit;color:#12374c}.ws-field textarea:focus{outline:3px solid #31cce775}.ws-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 15px}@media(max-width:650px){.ws-grid{grid-template-columns:1fr}}.ws-note{font-size:.86rem;color:#4b6d81}.worksheet-divider{border:0;border-top:2px dashed #a9dcea;margin:25px 0}.ws-status{font-size:.84rem;color:#16755b}
 
 
-    .mission-ticket{max-width:470px;margin:0 auto 18px;padding:23px 25px 19px;border:2px solid #73d4ee;border-radius:20px;text-align:center;background:linear-gradient(155deg,#f6fdff,#e9f8ff);color:#153a56;box-shadow:0 8px 25px #076dbc12}
+    .mission-ticket{max-width:650px;margin:0 auto 18px;padding:23px 25px 19px;border:2px solid #73d4ee;border-radius:20px;text-align:center;background:linear-gradient(155deg,#f6fdff,#e9f8ff);color:#153a56;box-shadow:0 8px 25px #076dbc12}
     .ticket-top{font-weight:900;font-size:.94rem;color:#075d95;letter-spacing:.04em}.ticket-top small{font-size:.74rem;font-weight:700;color:#4e7892}.ticket-bot{display:inline-grid;place-items:center;border-radius:50%;background:#0b88b6;color:white;width:26px;height:26px;margin-right:7px}.ticket-label{margin-top:13px;font-size:.74rem;font-weight:850;letter-spacing:.16em;color:#4583a0}.ticket-name{margin:9px 0 2px;font-size:.95rem;font-weight:700}.ticket-percent{font-size:4.6rem;line-height:1.15;font-weight:950;color:#087d9e;font-variant-numeric:tabular-nums}.ticket-level{font-size:1.15rem;font-weight:900;color:#086d7e}.ticket-message{font-size:.91rem;line-height:1.55;margin:8px auto 13px;max-width:330px}.ticket-footer{font-size:.75rem;color:#617c8a;border-top:1px dashed #a6cddd;padding-top:11px}.mission-ticket[data-level="excellent"] .ticket-percent{color:#07886b}.mission-ticket[data-level="practice"] .ticket-percent{color:#bd7732}.answer-feedback{margin:14px auto;max-width:650px}
-    @media print{ @page{size:A5 portrait;margin:10mm} html,body{background:white!important;color:#111!important} body::before,body::after,.hero,#quiz,#feedback,#saveStatus,#result>.actions,.small{display:none!important} .wrap{padding:0!important;margin:0!important;max-width:none!important} #result{display:block!important;padding:0!important;margin:0!important;background:white!important;border:0!important;box-shadow:none!important} #result::before{display:none!important}.mission-ticket{max-width:100%!important;width:100%!important;margin:0!important;padding:18px!important;box-shadow:none!important;border:2px solid #333!important;background:white!important;break-inside:avoid} .ticket-percent{color:#111!important;font-size:4.3rem!important}.ticket-level{color:#111!important} }
+    .result-scene{position:relative;overflow:hidden;border-radius:18px;min-height:180px;background:radial-gradient(circle at 50% 55%,#167bd7 0%,#0a3262 50%,#05182e 100%);margin-bottom:15px;border:1px solid #2bd6f788}
+    .result-scene svg{display:block;width:100%;height:185px}
+    .result-scene::before{content:"";position:absolute;inset:0;background-image:linear-gradient(#4bdcff1a 1px,transparent 1px),linear-gradient(90deg,#4bdcff1a 1px,transparent 1px);background-size:28px 28px}
+    .score-breakdown{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 0}
+    .score-chip{padding:12px 7px;border-radius:12px;background:#0b4776;color:white;box-shadow:inset 0 0 0 1px #43c9f977}
+    .score-chip small{display:block;font-size:.72rem;color:#b8efff}.score-chip strong{font-size:1.3rem;display:block;margin-top:4px}
+    .ai-feedback{margin-top:10px;padding:12px;text-align:left;background:#e5f8ff;border-radius:12px;color:#155577;font-size:.86rem}
+    .mission-ticket .ticket-percent{font-size:3.3rem}
+    @media print{ @page{size:A5 portrait;margin:10mm} html,body{background:white!important;color:#111!important} body::before,body::after,.hero,#quiz,#feedback,#saveStatus,#result>.actions,.small{display:none!important} .wrap{padding:0!important;margin:0!important;max-width:none!important} #result{display:block!important;padding:0!important;margin:0!important;background:white!important;border:0!important;box-shadow:none!important} #result::before{display:none!important}.mission-ticket{max-width:100%!important;width:100%!important;margin:0!important;padding:18px!important;box-shadow:none!important;border:2px solid #333!important;background:white!important;break-inside:avoid} .ticket-percent{color:#111!important;font-size:3.3rem!important}.result-scene{min-height:100px!important}.result-scene svg{height:100px!important}.score-chip{color:#111!important;background:white!important;border:1px solid #aaa!important}.score-chip small{color:#333!important}.ticket-level{color:#111!important} }
 </style>
 </head>
 <body>
@@ -105,7 +113,7 @@
       <hr class="worksheet-divider" />
       <form id="quizForm" class="panel" novalidate><h2>คำถามหลังจบเกม</h2><div id="questions"></div><div class="actions"><button type="submit">ส่งใบงานและตรวจคะแนน</button><span class="hint">กรุณาตอบให้ครบทุกข้อ</span></div><p id="formError" class="error" role="alert"></p></form>
     </section>
-    <section class="panel hide" id="result" aria-live="polite"><div id="ticket" class="mission-ticket"><div class="ticket-top"><span class="ticket-bot" aria-hidden="true">✦</span><span>HUMAN ROBOT <small>• EXIT TICKET</small></span></div><div class="ticket-label">MISSION COMPLETE</div><div class="ticket-name" id="resultName"></div><div class="ticket-percent" id="score"></div><div class="ticket-level" id="ticketLevel"></div><div class="ticket-message" id="ticketMessage"></div><div class="ticket-footer">แสดงตั๋วนี้ให้คุณครูก่อนออกจากห้องเรียน</div></div><div id="feedback" class="answer-feedback"></div><div id="saveStatus" class="notice">กำลังบันทึกผล...</div><div class="actions" style="margin-top:17px"><button type="button" id="retrySave" class="secondary hide">ลองบันทึกอีกครั้ง</button><button type="button" id="printTicket" class="secondary hide">พิมพ์ตั๋วออกจากห้อง</button><button type="button" id="resetBtn" class="secondary">ทำแบบทดสอบใหม่</button></div></section>
+    <section class="panel hide" id="result" aria-live="polite"><div id="ticket" class="mission-ticket"><div class="ticket-top"><span class="ticket-bot" aria-hidden="true">✦</span><span>HUMAN ROBOT <small>• EXIT TICKET</small></span></div><div class="result-scene" aria-hidden="true"><svg viewBox="0 0 600 185" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="robotgrad" x2="1" y2="1"><stop stop-color="#8bffff"/><stop offset="1" stop-color="#248fff"/></linearGradient></defs><g stroke="#29d8ff" stroke-width="3" opacity=".55" fill="none"><path d="M0 42h160l25 20h65M600 42H440l-25 20h-65M0 145h160l25-20h65M600 145H440l-25-20h-65"/></g><g transform="translate(300 96)"><ellipse cy="72" rx="90" ry="10" fill="#2cd9ff" opacity=".24"/><rect x="-55" y="-50" width="110" height="98" rx="24" fill="url(#robotgrad)" stroke="#d7ffff" stroke-width="4"/><rect x="-40" y="-31" width="80" height="47" rx="16" fill="#07345d"/><ellipse cx="-21" cy="-7" rx="9" ry="12" fill="#a9ffff"/><ellipse cx="21" cy="-7" rx="9" ry="12" fill="#a9ffff"/><path d="M-16 27q16 12 32 0" stroke="#08527a" stroke-width="5" fill="none" stroke-linecap="round"/><path d="M0-50v-16" stroke="#a9ffff" stroke-width="5"/><circle cy="-70" r="7" fill="#d9ffff"/><path d="M-55-10h-20v35h20M55-10h20v35H55" stroke="#70dfff" stroke-width="9" fill="none" stroke-linecap="round"/></g><g fill="#9dffff"><circle cx="132" cy="87" r="6"/><circle cx="466" cy="89" r="6"/><path d="M115 20l5 11 11 5-11 5-5 11-5-11-11-5 11-5zM480 118l4 9 9 4-9 4-4 9-4-9-9-4 9-4z"/></g><text x="300" y="174" text-anchor="middle" font-size="11" font-weight="bold" letter-spacing="4" fill="#a9f7ff">ROBOT MISSION COMPLETE</text></svg></div><div class="ticket-label">MISSION COMPLETE</div><div class="ticket-name" id="resultName"></div><div class="ticket-percent" id="score"></div><div class="ticket-level" id="ticketLevel"></div><div class="score-breakdown" id="scoreBreakdown" hidden><div class="score-chip"><small>โปรแกรม</small><strong id="programScore">–/8</strong></div><div class="score-chip"><small>AI ตรวจใบงาน</small><strong id="aiScore">–/12</strong></div><div class="score-chip"><small>Exit Ticket</small><strong id="quizScore">–/10</strong></div></div><div class="ai-feedback" id="aiFeedback" hidden></div><div class="ticket-message" id="ticketMessage"></div><div class="ticket-footer">แสดงตั๋วนี้ให้คุณครูก่อนออกจากห้องเรียน</div></div><div id="feedback" class="answer-feedback"></div><div id="saveStatus" class="notice">กำลังบันทึกผล...</div><div class="actions" style="margin-top:17px"><button type="button" id="retrySave" class="secondary hide">ลองบันทึกอีกครั้ง</button><button type="button" id="printTicket" class="secondary hide">พิมพ์ตั๋วออกจากห้อง</button><button type="button" id="resetBtn" class="secondary">ทำแบบทดสอบใหม่</button></div></section>
     <p class="small">หลังตอบ Exit Ticket ระบบจะส่งคะแนนและคำตอบใบงานไป Google Sheets ผ่าน Apps Script เวอร์ชันใหม่ • กรุณาตรวจสอบสถานะบันทึกสำเร็จก่อนพิมพ์ตั๋วออก</p>
   </main>
   <iframe name="saveFrame" id="saveFrame" title="ระบบบันทึกคะแนน" class="hide"></iframe>
@@ -149,15 +157,33 @@ function save(){
   setTimeout(()=>{if(pendingId){$('saveStatus').textContent='ยังไม่ได้รับการยืนยันว่าบันทึกสำเร็จ โปรดตรวจสอบอินเทอร์เน็ตหรือลองอีกครั้ง';$('retrySave').classList.remove('hide');}},45000);
 }
 window.addEventListener('message',e=>{
-  if(!e.origin.endsWith('.googleusercontent.com')&&!e.origin.endsWith('.google.com'))return;
+  // GAS HTML Service may post from a nested googleusercontent iframe.
+  if(e.origin!=='null' && !/^https:\/\/([a-z0-9-]+\.)*(googleusercontent\.com|google\.com)$/.test(e.origin)) return;
   if(!e.data||e.data.type!=='human-robot-save'||e.data.submissionId!==pendingId)return;
   if(e.data.success){
-    const total=Number(e.data.total),ready=e.data.status==='graded'&&Number.isFinite(total);
-    if(ready){const pct=Math.round(total/30*100);$('score').textContent=pct+'%';$('ticketLevel').textContent=pct>=80?'ยอดเยี่ยม! ผ่านภารกิจ':pct>=60?'ผ่านภารกิจแล้ว!':'ฝึกฝนเพิ่มเติมได้';$('ticketMessage').textContent=pct>=80?'เก่งมาก! ไปปลดล็อกความรู้ในวิชาถัดไปกันเลย':pct>=60?'ทำได้ดี! พร้อมเรียนรู้เรื่องใหม่แล้ว':'ทุกความพยายามคือการเรียนรู้ ไปต่อกันได้เลย!';$('ticket').dataset.level=pct>=80?'excellent':pct>=60?'passed':'practice';$('printTicket').classList.remove('hide');$('saveStatus').textContent='บันทึกและตรวจใบงานสำเร็จ • รวม '+total+'/30 คะแนน';}
-    else{$('score').textContent='รอตรวจ';$('ticketLevel').textContent='บันทึกงานแล้ว';$('ticketMessage').textContent='AI ยังตรวจไม่สำเร็จ โปรดแจ้งคุณครู';$('saveStatus').textContent='บันทึกลง Sheets แล้ว แต่รอการตรวจ AI • ยังไม่สามารถพิมพ์ตั๋วผลคะแนนได้';}
+    const total=e.data.total===null||e.data.total===''?NaN:Number(e.data.total);
+    const ready=e.data.status==='graded'&&Number.isFinite(total);
+    if(ready){
+      const pct=Math.round(total/30*100);
+      $('score').textContent=total+'/30 ('+pct+'%)';
+      $('ticketLevel').textContent=pct>=80?'ยอดเยี่ยม! ผ่านภารกิจ':pct>=60?'ผ่านภารกิจแล้ว!':'ฝึกฝนเพิ่มเติมได้';
+      $('ticketMessage').textContent='ภารกิจสำเร็จ! คุณพิชิตแนวคิดเชิงคำนวณแล้ว';
+      $('ticket').dataset.level=pct>=80?'excellent':pct>=60?'passed':'practice';
+      $('programScore').textContent=e.data.program+'/8';
+      $('aiScore').textContent=e.data.ai+'/12';
+      $('quizScore').textContent=e.data.quiz+'/10';
+      $('scoreBreakdown').hidden=false;
+      $('aiFeedback').textContent=e.data.feedback?'คำแนะนำจาก AI: '+e.data.feedback:'';
+      $('aiFeedback').hidden=!e.data.feedback;
+      $('printTicket').classList.remove('hide');
+      $('saveStatus').textContent='บันทึกและตรวจใบงานสำเร็จ • รวม '+total+'/30 คะแนน';
+    } else {
+      $('score').textContent='รอตรวจ';$('ticketLevel').textContent='บันทึกงานแล้ว';
+      $('ticketMessage').textContent='AI ยังตรวจไม่สำเร็จ โปรดแจ้งคุณครู';
+      $('saveStatus').textContent='บันทึกลง Sheets แล้ว แต่รอการตรวจ AI';
+    }
     $('saveStatus').classList.add('success');$('retrySave').classList.add('hide');pendingId=null;
-  }
-  else{$('saveStatus').textContent='บันทึกคะแนนไม่สำเร็จ กรุณาลองอีกครั้ง';$('retrySave').classList.remove('hide');}
+  } else {$('saveStatus').textContent='บันทึกคะแนนไม่สำเร็จ กรุณาลองอีกครั้ง';$('retrySave').classList.remove('hide');}
 });
 $('quizForm').addEventListener('submit',ev=>{
   ev.preventDefault();$('formError').textContent='';
@@ -172,7 +198,7 @@ $('quizForm').addEventListener('submit',ev=>{
   const level=percent>=80?'ยอดเยี่ยม! ผ่านภารกิจ':percent>=60?'ผ่านภารกิจแล้ว!':'ภารกิจนี้ยังฝึกเพิ่มได้';
   $('ticketLevel').textContent='รอคะแนนใบงาน';
   $('ticketMessage').textContent='กำลังตรวจใบงานและบันทึกคะแนน';
-  $('ticket').dataset.level='practice';
+  $('ticket').dataset.level='practice';$('scoreBreakdown').hidden=true;$('aiFeedback').hidden=true;$('printTicket').classList.add('hide');
   $('feedback').replaceChildren();
   QUESTIONS.forEach((q,i)=>{const div=document.createElement('div');div.className='feedback';div.textContent=`ข้อ ${i+1}: ${answers[i]===q.a?'ถูกต้อง':'คำตอบที่ถูก: '+q.o[q.a]} — ${q.why}`;$('feedback').append(div)});
   currentPayload={student:name,classroom:room,studentNo:n,answers,worksheet:Object.fromEntries(WS_IDS.map(id=>[id,$(id).value.trim()])),board:boardMarks.slice(),submissionId:crypto.randomUUID()};
