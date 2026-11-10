@@ -181,7 +181,7 @@ function save(){
   $('saveForm').submit();
   startScorePolling();
   // กรณีเบราว์เซอร์บล็อก iframe จะไม่ยืนยันว่าบันทึกสำเร็จ
-  setTimeout(()=>{if(pendingId){$('saveStatus').textContent='ยังไม่ได้รับการยืนยันว่าบันทึกสำเร็จ โปรดตรวจสอบอินเทอร์เน็ตหรือลองอีกครั้ง';$('retrySave').classList.remove('hide');}},45000);
+  setTimeout(()=>{if(pendingId && !$('saveStatus').classList.contains('success')){$('saveStatus').textContent='ยังไม่ได้รับการยืนยันว่าบันทึกสำเร็จ โปรดตรวจสอบอินเทอร์เน็ตหรือลองอีกครั้ง';$('retrySave').classList.remove('hide');}},45000);
 }
 window.addEventListener('message',e=>{
   // GAS HTML Service may post from a nested googleusercontent iframe.
@@ -209,7 +209,9 @@ window.addEventListener('message',e=>{
       $('ticketMessage').textContent='AI ยังตรวจไม่สำเร็จ โปรดแจ้งคุณครู';
       $('saveStatus').textContent='บันทึกลง Sheets แล้ว แต่รอการตรวจ AI';
     }
-    $('saveStatus').classList.add('success');$('retrySave').classList.add('hide');pendingId=null;clearTimeout(scorePollTimer);
+    $('saveStatus').classList.add('success');$('retrySave').classList.add('hide');
+    // Keep polling when the initial POST reports pending; AI may finish later.
+    if(ready){pendingId=null;clearTimeout(scorePollTimer);}
   } else {$('saveStatus').textContent='บันทึกคะแนนไม่สำเร็จ กรุณาลองอีกครั้ง';$('retrySave').classList.remove('hide');}
 });
 $('quizForm').addEventListener('submit',ev=>{
